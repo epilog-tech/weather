@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "wearther-app": {
+    "weather-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/wearther-app",
+            "outputPath": "dist/weather-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "wearther-app:build:production"
+              "buildTarget": "weather-app:build:production"
             },
             "development": {
-              "buildTarget": "wearther-app:build:development"
+              "buildTarget": "weather-app:build:development"
             }
           },
           "defaultConfiguration": "development"

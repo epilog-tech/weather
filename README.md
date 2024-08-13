@@ -10,7 +10,7 @@ check you node and npm version
 Install angular cli
 `npm install -g @angular/cli`
 Create app
-`ng new wearther-app`
+`ng new weather-app`
 Select which stylesheet format would you like to use ?
 - CSS
 - SCSS
@@ -23,7 +23,7 @@ Would you like to enable SSR ? y/n
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 The application will automatically reload if you change any of the source files.
 
- WeartherApp
+ WeatherApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.4.
 

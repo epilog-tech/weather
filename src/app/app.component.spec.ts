@@ -15,17 +15,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'wearther-app' title`, () => {
+  it(`should have the 'weather-app' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('wearther-app');
+    expect(app.title).toEqual('weather-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, wearther-app');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, weather-app');
   });
 });
 /* eslint-enable @typescript-eslint/no-unsafe-call */
