@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -27,3 +28,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('h1')?.textContent).toContain('Hello, wearther-app');
   });
 });
+/* eslint-enable @typescript-eslint/no-unsafe-call */
