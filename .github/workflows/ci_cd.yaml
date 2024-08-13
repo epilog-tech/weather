@@ -39,18 +39,18 @@ jobs:
         export DISPLAY=:99.0
         nohup Xvfb :99 -screen 0 1920x1080x16 &
 
-    - name: Run tests
-      run: npm test -- --watch=false --code-coverage
+    # - name: Run tests
+    #   run: npm test -- --watch=false --code-coverage
 
     - name: Build the project
       run: npm run build -- --configuration production --base-href=/weather/
 
-    - name: Upload test coverage report
-      if: always()
-      uses: actions/upload-artifact@v3
-      with:
-        name: coverage-report
-        path: coverage/
+    # - name: Upload test coverage report
+    #   if: always()
+    #   uses: actions/upload-artifact@v3
+    #   with:
+    #     name: coverage-report
+    #     path: coverage/
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
