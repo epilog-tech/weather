@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -8,16 +8,20 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent]
-    })
-    .compileComponents();
+      imports: [
+        RouterTestingModule,  // Include RouterTestingModule since RouterModule is used in the component
+        HeaderComponent,  // Since HeaderComponent is a standalone component, import it directly
+      ],
+    }).compileComponents();
+  });
 
+  beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the header component', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { WeatherListComponent } from './weather-list.component';
-
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 describe('WeatherListComponent', () => {
   let component: WeatherListComponent;
   let fixture: ComponentFixture<WeatherListComponent>;

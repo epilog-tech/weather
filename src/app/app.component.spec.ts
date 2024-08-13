@@ -1,35 +1,40 @@
-// import { TestBed } from '@angular/core/testing';
-// import { AppComponent } from './app.component';
-// import { HeaderComponent } from './components/header/header.component';
-// import { WeatherComponent } from './components/weather/weather.component';
-// import { WeatherListComponent } from './components/weather-list/weather-list.component';
-// import { RouterModule } from '@angular/router';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
 
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 describe('AppComponent', () => {
-  // beforeEach(async () => {
-  //   await TestBed.configureTestingModule({
-  //     imports: [AppComponent, HeaderComponent, WeatherComponent, WeatherListComponent, RouterModule],
-  //   }).compileComponents();
-  // });
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
-  // it('should create the app', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.componentInstance;
-  //   expect(app).toBeTruthy();
-  // });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule, // Include RouterTestingModule for RouterOutlet
+        NgbModule,
+        HeaderComponent,
+        AppComponent, // Since this is a standalone component, you should import it directly
+      ],
+    }).compileComponents();
+  });
 
-  // it(`should have the 'weather' title`, () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   const app = fixture.componentInstance;
-  //   expect(app.title).toEqual('weather');
-  // });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-  // it('should render title', () => {
-  //   const fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
+  it('should create the app', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it(`should have the title 'weather-app'`, () => {
+    expect(component.title).toEqual('weather-app');
+  });
+
+  // it('should render title in a h1 tag', () => {
   //   const compiled = fixture.nativeElement as HTMLElement;
-  //   expect(compiled.querySelector('h1')?.textContent).toContain('weather');
+  //   expect(compiled.querySelector('h1')?.textContent).toContain('weather-app');
   // });
 });
-/* eslint-enable @typescript-eslint/no-unsafe-call */
