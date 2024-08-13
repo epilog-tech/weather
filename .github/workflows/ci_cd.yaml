@@ -55,7 +55,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_DEPLOY_TOKEN  }}
         publish_dir: ./dist/weather-app  # Adjust this to the path where your build output is located
         # Optional: To use a custom CNAME for GitHub Pages
         # cname: example.com
