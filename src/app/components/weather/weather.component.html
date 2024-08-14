@@ -2,7 +2,8 @@
     <div class="card mt-5">
         <div class="card-body" [appBackgroundColor]="temperature" >
             <h2 class="card-title text-white">Weather</h2>
-            <p class="card-text text-white">Current Temperature {{temperature}}</p>
+            <p class="card-text text-white">Current Temperature {{temperature | temperatureConversion: unit | number: '1.2-2'}}</p>
+            <button class="btn btn-primary" (click)="toggleUnit()" >Toggle unit</button>
         </div>
     </div>
 </div>

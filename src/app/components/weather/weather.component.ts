@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { BackgroundColorDirective } from '../../directives/background-color.directive';
 import { ActivatedRoute } from '@angular/router';
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { TemperatureConversionPipe } from '../../pipes/temperature-conversion.pipe';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-weather',
   standalone: true,
-  imports: [BackgroundColorDirective],
+  imports: [BackgroundColorDirective, TemperatureConversionPipe, CommonModule],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css',
 })
 export class WeatherComponent implements OnInit {
   cityCode: string = '';
   temperature: number = 0;
+  unit: string = 'C';
   constructor(private route: ActivatedRoute) {}
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
@@ -42,5 +43,9 @@ export class WeatherComponent implements OnInit {
         this.temperature = 0;
       }
     });
+  }
+  toggleUnit()
+  {
+    this.unit = this.unit === 'C' ? 'F' : 'C';
   }
 }
