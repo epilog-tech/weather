@@ -1,1 +1,12 @@
-<p>weather-list works!</p>
+<div class="container">
+    <h2>Cities</h2>
+
+    <ul class="list_group">
+        @for(city of weatherList; track city.id)
+        {
+            <button class="list-group-item btn btn-block btn-success" (click)="navigateToWeather(city.code)">
+                {{ city.code }} : {{ city.name }}
+            </button>
+        }
+    </ul>
+</div>

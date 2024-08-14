@@ -1,22 +1,36 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { WeatherListComponent } from './weather-list.component';
-/* eslint-disable @typescript-eslint/no-unsafe-call */
+import { RouterTestingModule } from '@angular/router/testing';
+
 describe('WeatherListComponent', () => {
   let component: WeatherListComponent;
   let fixture: ComponentFixture<WeatherListComponent>;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WeatherListComponent]
-    })
-    .compileComponents();
+      imports: [WeatherListComponent, RouterTestingModule], // Import the standalone component
+    }).compileComponents();
 
     fixture = TestBed.createComponent(WeatherListComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have a weather list defined', () => {
+    expect(component.weatherList).toBeDefined();
+    expect(component.weatherList.length).toBeGreaterThan(0);
+  });
+
+  it('should navigate to weather page when navigateToWeather is called', async () => {
+    const navigateSpy = spyOn(router, 'navigate');
+    await component.navigateToWeather('tunis');
+    expect(navigateSpy).toHaveBeenCalledWith(['/weather'], { queryParams: { code: 'tunis' } });
   });
 });
